@@ -1,29 +1,32 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "skinswitch",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Skin Switch Mod",
+  "description": "This is a mod that switch top skin layer",
   "authors": [
-    "Me!"
+    "MatthieuClam"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/matthieuclam",
+    "sources": "https://github.com/matthieuclam"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT License",
   "icon": "assets/modid/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.matthieuclam.skinswitch.SkinSwitchMod"
+    ],
+    "client": [
+      "net.matthieuclam.skinswitch.SkinSwitchClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "skinswitch.mixins.json"
   ],
 
   "depends": {
