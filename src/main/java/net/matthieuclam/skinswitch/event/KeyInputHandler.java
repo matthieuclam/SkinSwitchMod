@@ -18,7 +18,9 @@ public class KeyInputHandler {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if(switchingKey.wasPressed()) {
                 for(PlayerModelPart modelPart : modelParts) {
-                    client.options.togglePlayerModelPart(modelPart, !client.options.isPlayerModelPartEnabled(modelPart));
+                    if (modelPart != PlayerModelPart.CAPE) {
+                        client.options.togglePlayerModelPart(modelPart, !client.options.isPlayerModelPartEnabled(modelPart));
+                    }
                 }
             }
         });

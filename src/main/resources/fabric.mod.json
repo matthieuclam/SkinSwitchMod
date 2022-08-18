@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Skin Switch Mod",
-  "description": "This is a mod that switch top skin layer",
+  "description": "This is a mod that switch on and off the top layer of your skin",
   "authors": [
     "MatthieuClam"
   ],
@@ -14,9 +14,9 @@
   },
 
   "license": "MIT License",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/skinswitch/icon.png",
 
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "client": [
       "net.matthieuclam.skinswitch.SkinSwitchClient"
