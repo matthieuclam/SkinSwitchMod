@@ -2,42 +2,44 @@ package net.matthieuclam.skinswitch;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.text.Text;
-import net.minecraft.util.TypedActionResult;
 
 import java.util.List;
 
 import static net.matthieuclam.skinswitch.util.Functions.hideSkin;
+import net.matthieuclam.skinswitch.util.Functions;
 
 public class SkinSwitch implements ModInitializer {
 
     public static final PlayerModelPart[] modelParts = PlayerModelPart.values();
+    public static Functions packetLimiter = new Functions();
 
     @Override
     public void onInitialize() {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            try {
-                ItemStack stack = new ItemStack(Items.SHEARS);
-                List<AbstractClientPlayerEntity> players = client.world.getPlayers();
+            if (!packetLimiter.getPacketLimiter()) {
+                try {
+                    ItemStack stack = new ItemStack(Items.SHEARS);
+                    List<AbstractClientPlayerEntity> players = client.world.getPlayers();
 
-                for(PlayerEntity playerIterator : players) {
-                    if (playerIterator != client.player
-                            && client.world.isClient()
-                            && playerIterator.getMainHandStack().getItem() == stack.getItem()
-                            && playerIterator.isSneaking()
-                    ) {
-                        hideSkin(modelParts);
+                    for(PlayerEntity playerIterator : players) {
+                        if (playerIterator != client.player
+                                && client.world.isClient()
+                                && playerIterator.getMainHandStack().getItem() == stack.getItem()
+                                && playerIterator.isSneaking()
+                        ) {
+                            hideSkin(modelParts);
+                            packetLimiter.setPacketLimiter(true);
+                        }
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         });
 
