@@ -7,6 +7,7 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
+import static net.matthieuclam.skinswitch.util.Functions.toggleSkin;
 
 public class KeyInputHandler {
     public static final String KEY_CATEGORY_SWITCH = "key.category.skinswitch.switch";

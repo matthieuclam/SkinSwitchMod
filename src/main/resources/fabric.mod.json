@@ -18,6 +18,9 @@
 
   "environment": "client",
   "entrypoints": {
+    "main": [
+      "net.matthieuclam.skinswitch.SkinSwitch"
+    ],
     "client": [
       "net.matthieuclam.skinswitch.SkinSwitchClient"
     ],

@@ -6,6 +6,8 @@ import com.google.gson.GsonBuilder;
 import net.fabricmc.api.ClientModInitializer;
 import net.matthieuclam.skinswitch.config.ConfigManager;
 import net.matthieuclam.skinswitch.event.KeyInputHandler;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.entity.PlayerModelPart;
 
 public class SkinSwitchClient implements ClientModInitializer {
 
