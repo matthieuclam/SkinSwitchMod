@@ -27,27 +27,19 @@ public class SkinSwitch implements ModInitializer {
         }
     }
 
-    public static void showSkin(PlayerModelPart[] modelParts) {
-        for(PlayerModelPart modelPart : modelParts) {
-            if (modelPart != PlayerModelPart.CAPE) {
-                client.options.togglePlayerModelPart(modelPart, true);
-            }
-        }
-    }
-
     @Override
     public void onInitialize() {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            ItemStack stackShear = new ItemStack(Items.SHEARS);
+            ItemStack stackWool = new ItemStack(Items.PINK_WOOL);
             if (!packetLimiter.getPacketLimiter()) {
                 try {
-                    ItemStack stack = new ItemStack(Items.SHEARS);
                     List<AbstractClientPlayerEntity> players = client.world.getPlayers();
-
                     for(PlayerEntity playerIterator : players) {
                         if (playerIterator != client.player
                                 && client.world.isClient()
-                                && playerIterator.getMainHandStack().getItem() == stack.getItem()
+                                && playerIterator.getMainHandStack().getItem() == stackShear.getItem()
                                 && playerIterator.isSneaking()
                                 && playerIterator.squaredDistanceTo(client.player) <= 9
                         ) {
@@ -60,31 +52,6 @@ public class SkinSwitch implements ModInitializer {
                 }
             }
         });
-
-        /*
-        UseItemCallback.EVENT.register((player, world, hand) ->
-        {
-            ItemStack stack = new ItemStack(Items.SHEARS);
-            List<PlayerEntity> players = (List<PlayerEntity>) world.getPlayers();
-
-            for(PlayerEntity playerIterator : players) {
-                if (playerIterator != player
-                        && world.isClient()
-                        && playerIterator.getMainHandStack().getItem() == stack.getItem()
-                        && playerIterator.isSneaking()
-                )
-                {
-                    hideSkin(modelParts);
-                }
-            }
-
-            if(world.isClient() && player.getStackInHand(hand).getItem() == stack.getItem()) {
-                toggleSkin(modelParts);
-            }
-
-            return TypedActionResult.pass(stack);
-        });
-        */
 
     }
 }
