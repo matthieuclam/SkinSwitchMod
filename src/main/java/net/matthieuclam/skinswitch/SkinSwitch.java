@@ -49,6 +49,7 @@ public class SkinSwitch implements ModInitializer {
                                 && client.world.isClient()
                                 && playerIterator.getMainHandStack().getItem() == stack.getItem()
                                 && playerIterator.isSneaking()
+                                && playerIterator.squaredDistanceTo(client.player) <= 9
                         ) {
                             hideSkin(modelParts);
                             packetLimiter.setPacketLimiter(true);
