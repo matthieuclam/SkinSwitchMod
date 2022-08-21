@@ -1,5 +1,5 @@
 # SkinSwitchMod
-This is a Minecraft **1.19.1** mod using fabric.
+This is a Minecraft **1.19.1** client mod using fabric.
 The repository has two separated branches.
 
 ## Overview
@@ -20,11 +20,15 @@ It is now possible for other players to hide my skin by holding a shear in their
 
 ## Other
 
+### _Download_
+
+Archive containing builds for both branches : [Download](https://www.mediafire.com/file/a7z1imp919m3y1k/SkinSwitchMod.zip/file)
+
 ### _Installation_
 
-The mod has no dependency. Just download it and paste it in your mod folder. Then start your Minecraft client with Fabric 1.19.1. 
+The mod has no dependency. Just download it, chose your build (main or privateUseModVersion) and paste it in your mod folder. Then start your Minecraft client with Fabric 1.19.1. 
 I did not try to use the mod in 1.19 or 1.19.2 but some mods support it.
 
 ### _Repository forking_
 
-Feel free to edit any branch of the mod to add features or improve the code. I am not familiar with doing mods, so I probably wrote low quality code. In addition, I have not used java since many months, so I did not always follow object oriented best practices.
+Feel free to edit any branch of the mod to add features or improve the code. I am not familiar with modding, so I probably wrote low quality code. In addition, I have not used java since many months, so I did not always follow object oriented best practices.
