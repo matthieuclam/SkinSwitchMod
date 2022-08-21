@@ -1,17 +1,12 @@
 package net.matthieuclam.skinswitch.util;
 
-import net.matthieuclam.skinswitch.SkinSwitch;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.entity.PlayerModelPart;
+public class PacketLimiter {
 
-import java.util.TimerTask;
-
-public class Functions {
-
-    public static MinecraftClient client = MinecraftClient.getInstance();
+    //public static MinecraftClient client = MinecraftClient.getInstance();
 
     private boolean packetLimiter = true;
 
+    /*
     public static void toggleSkin(PlayerModelPart[] modelParts) {
         for(PlayerModelPart modelPart : modelParts) {
             if (modelPart != PlayerModelPart.CAPE) {
@@ -27,6 +22,7 @@ public class Functions {
             }
         }
     }
+     */
 
     public boolean getPacketLimiter() {
         return this.packetLimiter;

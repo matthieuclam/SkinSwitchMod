@@ -3,18 +3,27 @@ package net.matthieuclam.skinswitch.event;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.matthieuclam.skinswitch.config.Config;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
-import static net.matthieuclam.skinswitch.util.Functions.toggleSkin;
 
 public class KeyInputHandler {
     public static final String KEY_CATEGORY_SWITCH = "key.category.skinswitch.switch";
     public static final String KEY_SWITCH_SKIN = "key.category.skinswitch.switch_skin";
     public static final PlayerModelPart[] modelParts = PlayerModelPart.values();
+    public static MinecraftClient client = MinecraftClient.getInstance();
 
     public static KeyBinding switchingKey;
+
+    private static void toggleSkin(PlayerModelPart[] modelParts) {
+        for(PlayerModelPart modelPart : modelParts) {
+            if (modelPart != PlayerModelPart.CAPE) {
+                client.options.togglePlayerModelPart(modelPart, !client.options.isPlayerModelPartEnabled(modelPart));
+            }
+        }
+    }
 
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
