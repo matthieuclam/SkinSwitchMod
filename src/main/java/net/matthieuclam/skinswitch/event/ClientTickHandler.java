@@ -1,6 +1,8 @@
 package net.matthieuclam.skinswitch.event;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.matthieuclam.skinswitch.SkinSwitch;
+import net.matthieuclam.skinswitch.SkinSwitchClient;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.PlayerModelPart;
@@ -13,6 +15,7 @@ import java.util.List;
 public class ClientTickHandler {
 
     private static boolean packetLimiter = false;
+    private static int numberOfPinkWool = 0;
     public static MinecraftClient client = MinecraftClient.getInstance();
     public static final PlayerModelPart[] modelParts = PlayerModelPart.values();
 
@@ -24,10 +27,24 @@ public class ClientTickHandler {
         packetLimiter = limiter;
     }
 
+    public static int getNumberOfPinkWool() { return numberOfPinkWool; }
+
+    public static void setNumberOfPinkWool(int number) {
+        numberOfPinkWool = number;
+    }
+
     public static void hideSkin(PlayerModelPart[] modelParts) {
         for(PlayerModelPart modelPart : modelParts) {
             if (modelPart != PlayerModelPart.CAPE) {
                 client.options.togglePlayerModelPart(modelPart, false);
+            }
+        }
+    }
+
+    public static void showSkin(PlayerModelPart[] modelParts) {
+        for(PlayerModelPart modelPart : modelParts) {
+            if (modelPart != PlayerModelPart.CAPE) {
+                client.options.togglePlayerModelPart(modelPart, true);
             }
         }
     }
@@ -54,6 +71,16 @@ public class ClientTickHandler {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                }
+            }
+            if (client.world != null) {
+                int currentNumberOfPinkWool = client.player.getInventory().count(new ItemStack(Items.PINK_WOOL).getItem());
+                if (currentNumberOfPinkWool > getNumberOfPinkWool()) {
+                    setNumberOfPinkWool(currentNumberOfPinkWool);
+                    showSkin(modelParts);
+                    setPacketLimiter(false);
+                } else if (currentNumberOfPinkWool < getNumberOfPinkWool()) {
+                    setNumberOfPinkWool(currentNumberOfPinkWool);
                 }
             }
         });
