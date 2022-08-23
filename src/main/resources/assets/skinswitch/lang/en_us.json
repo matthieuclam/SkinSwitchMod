@@ -3,9 +3,9 @@
   "key.category.skinswitch.switch_skin": "Hide/Show top skin layer",
   "options.switchskinmod.title": "Skin Switch Mod Options",
   "option.modmenu.cape": "Cape switch",
-  "option.modmenu.cape.false": "False",
-  "option.modmenu.cape.true": "True",
+  "option.modmenu.cape.false": "Disabled",
+  "option.modmenu.cape.true": "Enabled",
   "option.modmenu.animated": "Animated on show",
-  "option.modmenu.animated.false": "False",
-  "option.modmenu.animated.true": "True"
+  "option.modmenu.animated.false": "Disabled",
+  "option.modmenu.animated.true": "Enabled"
 }
