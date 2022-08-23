@@ -9,7 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 
-import java.util.List;
+import java.util.*;
 
 public class ClientTickHandler {
 
@@ -54,6 +54,23 @@ public class ClientTickHandler {
         }
     }
 
+    public static void showSkinAnimated(PlayerModelPart[] modelParts) {
+        ArrayList<PlayerModelPart> modelPartsArrayList = new ArrayList<PlayerModelPart>(List.of(modelParts));
+        Collections.shuffle(modelPartsArrayList);
+        if (!Config.CAPE.getValue()) {
+            modelPartsArrayList.remove(PlayerModelPart.CAPE);
+        }
+        Thread thread = new Thread(() -> modelPartsArrayList.forEach(modelPart -> {
+            try {
+                Thread.sleep(new Random().nextInt(1000));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            client.options.togglePlayerModelPart(modelPart, true);
+        }));
+        thread.start();
+    }
+
     public static void playerCondition(PlayerEntity playerIterator) {
         if (playerIterator != client.player
                 && client.world.isClient()
@@ -68,18 +85,6 @@ public class ClientTickHandler {
 
     public static void register() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            /*
-            if (client.world != null && !getPacketLimiter()) {
-                try {
-                    List<AbstractClientPlayerEntity> players = client.world.getPlayers();
-                    for(PlayerEntity playerIterator : players) {
-                        playerCondition(playerIterator);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            */
             if (client.world != null) {
                 if (!getPacketLimiter()) {
                     List<AbstractClientPlayerEntity> players = client.world.getPlayers();
@@ -90,7 +95,11 @@ public class ClientTickHandler {
                 int currentNumberOfPinkWool = client.player.getInventory().count(new ItemStack(Items.PINK_WOOL).getItem());
                 if (currentNumberOfPinkWool > getNumberOfPinkWool()) {
                     setNumberOfPinkWool(currentNumberOfPinkWool);
-                    showSkin(modelParts);
+                    if (Config.ANIMATED.getValue()) {
+                        showSkinAnimated(modelParts);
+                    } else {
+                        showSkin(modelParts);
+                    }
                     setPacketLimiter(false);
                 } else if (currentNumberOfPinkWool < getNumberOfPinkWool()) {
                     setNumberOfPinkWool(currentNumberOfPinkWool);

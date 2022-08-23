@@ -4,5 +4,8 @@
   "options.switchskinmod.title": "Skin Switch Mod Options",
   "option.modmenu.cape": "Cape switch",
   "option.modmenu.cape.false": "False",
-  "option.modmenu.cape.true": "True"
+  "option.modmenu.cape.true": "True",
+  "option.modmenu.animated": "Animated on show",
+  "option.modmenu.animated.false": "False",
+  "option.modmenu.animated.true": "True"
 }

@@ -15,6 +15,7 @@ import java.util.Locale;
 public class Config {
 
     public static final BooleanConfigOption CAPE = new BooleanConfigOption("cape", false);
+    public static final BooleanConfigOption ANIMATED = new BooleanConfigOption("animated", false);
 
     public static SimpleOption<?>[] asOptions() {
         ArrayList<SimpleOption<?>> options = new ArrayList<>();

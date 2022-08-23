@@ -4,5 +4,8 @@
   "options.switchskinmod.title": "Options du mod Skin Switch",
   "option.modmenu.cape": "Inclure la cape",
   "option.modmenu.cape.false": "Désactivé",
-  "option.modmenu.cape.true": "Activé"
+  "option.modmenu.cape.true": "Activé",
+  "option.modmenu.animated": "Animation",
+  "option.modmenu.animated.false": "Désactivé",
+  "option.modmenu.animated.true": "Activé"
 }
