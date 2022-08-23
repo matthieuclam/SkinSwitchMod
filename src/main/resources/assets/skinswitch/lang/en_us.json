@@ -1,4 +1,8 @@
 {
   "key.category.skinswitch.switch": "SkinSwitchMod",
-  "key.category.skinswitch.switch_skin": "Hide/Show top skin layer"
+  "key.category.skinswitch.switch_skin": "Hide/Show top skin layer",
+  "options.switchskinmod.title": "Skin Switch Mod Options",
+  "option.modmenu.cape": "Cape switch",
+  "option.modmenu.cape.false": "False",
+  "option.modmenu.cape.true": "True"
 }

@@ -2,6 +2,7 @@ package net.matthieuclam.skinswitch.event;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.matthieuclam.skinswitch.config.Config;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.client.util.InputUtil;
@@ -20,6 +21,9 @@ public class KeyInputHandler {
                 for(PlayerModelPart modelPart : modelParts) {
                     if (modelPart != PlayerModelPart.CAPE) {
                         client.options.togglePlayerModelPart(modelPart, !client.options.isPlayerModelPartEnabled(modelPart));
+                    }
+                    if (Config.CAPE.getValue()) {
+                        client.options.togglePlayerModelPart(PlayerModelPart.CAPE, !client.options.isPlayerModelPartEnabled(PlayerModelPart.CAPE));
                     }
                 }
             }

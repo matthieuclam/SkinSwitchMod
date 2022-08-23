@@ -20,10 +20,12 @@
   "entrypoints": {
     "client": [
       "net.matthieuclam.skinswitch.SkinSwitchClient"
+    ],
+    "modmenu": [
+      "net.matthieuclam.skinswitch.modMenu.ModMenuIntegration"
     ]
   },
   "mixins": [
-    "skinswitch.mixins.json"
   ],
 
   "depends": {

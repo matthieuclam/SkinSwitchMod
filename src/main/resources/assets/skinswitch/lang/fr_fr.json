@@ -1,4 +1,8 @@
 {
   "key.category.skinswitch.switch": "SkinSwitchMod",
-  "key.category.skinswitch.switch_skin": "Cacher/Montrer la couche supérieure"
+  "key.category.skinswitch.switch_skin": "Cacher/Montrer la couche supérieure",
+  "options.switchskinmod.title": "Options du mod Skin Switch",
+  "option.modmenu.cape": "Inclure la cape",
+  "option.modmenu.cape.false": "Désactivé",
+  "option.modmenu.cape.true": "Activé"
 }
