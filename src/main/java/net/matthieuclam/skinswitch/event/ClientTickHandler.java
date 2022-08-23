@@ -1,8 +1,7 @@
 package net.matthieuclam.skinswitch.event;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.matthieuclam.skinswitch.SkinSwitch;
-import net.matthieuclam.skinswitch.SkinSwitchClient;
+import net.matthieuclam.skinswitch.config.Config;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.PlayerModelPart;
@@ -38,6 +37,9 @@ public class ClientTickHandler {
             if (modelPart != PlayerModelPart.CAPE) {
                 client.options.togglePlayerModelPart(modelPart, false);
             }
+            if (Config.CAPE.getValue()) {
+                client.options.togglePlayerModelPart(PlayerModelPart.CAPE, false);
+            }
         }
     }
 
@@ -45,6 +47,9 @@ public class ClientTickHandler {
         for(PlayerModelPart modelPart : modelParts) {
             if (modelPart != PlayerModelPart.CAPE) {
                 client.options.togglePlayerModelPart(modelPart, true);
+            }
+            if (Config.CAPE.getValue()) {
+                client.options.togglePlayerModelPart(PlayerModelPart.CAPE, true);
             }
         }
     }
@@ -63,6 +68,7 @@ public class ClientTickHandler {
 
     public static void register() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            /*
             if (client.world != null && !getPacketLimiter()) {
                 try {
                     List<AbstractClientPlayerEntity> players = client.world.getPlayers();
@@ -73,7 +79,14 @@ public class ClientTickHandler {
                     e.printStackTrace();
                 }
             }
+            */
             if (client.world != null) {
+                if (!getPacketLimiter()) {
+                    List<AbstractClientPlayerEntity> players = client.world.getPlayers();
+                    for(PlayerEntity playerIterator : players) {
+                        playerCondition(playerIterator);
+                    }
+                }
                 int currentNumberOfPinkWool = client.player.getInventory().count(new ItemStack(Items.PINK_WOOL).getItem());
                 if (currentNumberOfPinkWool > getNumberOfPinkWool()) {
                     setNumberOfPinkWool(currentNumberOfPinkWool);
