@@ -8,6 +8,9 @@ import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.util.math.BlockPos;
 
 import java.util.*;
 
@@ -67,6 +70,17 @@ public class ClientTickHandler {
                 throw new RuntimeException(e);
             }
             client.options.togglePlayerModelPart(modelPart, true);
+            for (int i = 0; i < 3; i++) {
+                client.particleManager.addParticle(
+                        ParticleTypes.HAPPY_VILLAGER,
+                        client.player.getPos().getX() + new Random().nextDouble(1) - 0.5,
+                        client.player.getPos().getY() + new Random().nextDouble(2),
+                        client.player.getPos().getZ() + new Random().nextDouble(1) - 0.5,
+                        client.player.getVelocity().getX(),
+                        client.player.getVelocity().getY(),
+                        client.player.getVelocity().getZ()
+                );
+            }
         }));
         thread.start();
     }
