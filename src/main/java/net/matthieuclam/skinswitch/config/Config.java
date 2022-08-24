@@ -16,6 +16,8 @@ public class Config {
 
     public static final BooleanConfigOption CAPE = new BooleanConfigOption("cape", false);
     public static final BooleanConfigOption ANIMATED = new BooleanConfigOption("animated", false);
+    public static final BooleanConfigOption PARTICLES_ON_STATIC = new BooleanConfigOption("particlesOnStatic", false);
+    public static final BooleanConfigOption PARTICLES_ON_ANIMATED = new BooleanConfigOption("particlesOnAnimated", false);
 
     public static SimpleOption<?>[] asOptions() {
         ArrayList<SimpleOption<?>> options = new ArrayList<>();

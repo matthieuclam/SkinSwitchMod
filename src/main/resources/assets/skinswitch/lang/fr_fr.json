@@ -7,5 +7,11 @@
   "option.modmenu.cape.true": "Activé",
   "option.modmenu.animated": "Animation",
   "option.modmenu.animated.false": "Désactivé",
-  "option.modmenu.animated.true": "Activé"
+  "option.modmenu.animated.true": "Activé",
+  "option.modmenu.particlesOnStatic": "Particules",
+  "option.modmenu.particlesOnStatic.false": "Désactivé",
+  "option.modmenu.particlesOnStatic.true": "Activé",
+  "option.modmenu.particlesOnAnimated": "Particles avec animation",
+  "option.modmenu.particlesOnAnimated.false": "Désactivé",
+  "option.modmenu.particlesOnAnimated.true": "Activé"
 }
