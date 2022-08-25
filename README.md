@@ -7,7 +7,7 @@ The repository has two separated branches.
 ### _The main branch_
 
 This branch is the "public" version of the mod. It has only one basic feature.
-The feature adds a key binding that allow the user to hide/show its top skin layer. The player's cape is not affected by default but an option is available if you use ModMenu from TerraformersMC
+The feature adds a key binding that allow the user to hide/show its top skin layer. The player's cape is not affected by default but an option is available with the ModMenu from TerraformersMC
 
 ![keyBindingImage](readme/images/keyBinding.png "Key binding")
 
@@ -27,11 +27,13 @@ You can also download [releases that are available on Github](https://github.com
 
 ### _Installation_
 
-The mod has no dependency.  
-Just download it after choosing your build (main or privateUseModVersion) and paste it in your mod folder.  
+**The mod has two dependencies.** You have to download [Mod Menu](https://github.com/TerraformersMC/ModMenu) and [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) if you want to use this mod.  
+Download the SkinSwitchMod after choosing your build (main or privateUseModVersion) and paste it in your mod folder. Add the two dependencies.  
 Then start your Minecraft client with Fabric 1.19.1. 
-I did not try to use the mod in 1.19 or 1.19.2 but some mods support it.  
-The SkinSwitchMod supports ModMenu. You can also download this mod on [Curseforge ModMenu page](https://www.curseforge.com/minecraft/mc-mods/modmenu)
+The mod seems to support Fabric 1.19.2 (if you update dependencies).  
+
+Config options with ModMenu (privateUseModVersion branch) :
+![optionScreenImage](readme/images/optionScreen.png "Option screen")
 
 ### _Sources_
 
@@ -41,4 +43,4 @@ Some code taken from [Mod Menu](https://github.com/TerraformersMC/ModMenu) (espe
 
 ### _Repository forking_
 
-Feel free to edit any branch of the mod to add features or improve the code. I am not familiar with modding, so I probably wrote low quality code. In addition, I have not used java since many months, so I did not always follow object oriented best practices even if I tried.
+Feel free to edit any branch of the mod to add features or improve the code. I am not familiar with modding, so I probably wrote low quality code. In addition, I have not been coding in java for many months, so I did not always follow object oriented best practices even if I tried.
