@@ -8,10 +8,10 @@
   "option.modmenu.animated": "Animated on show",
   "option.modmenu.animated.false": "Disabled",
   "option.modmenu.animated.true": "Enabled",
-  "option.modmenu.particlesOnStatic": "Particles on static",
+  "option.modmenu.particlesOnStatic": "Particles&static",
   "option.modmenu.particlesOnStatic.false": "Disabled",
   "option.modmenu.particlesOnStatic.true": "Enabled",
-  "option.modmenu.particlesOnAnimated": "Particles on animated",
+  "option.modmenu.particlesOnAnimated": "Particles&animated",
   "option.modmenu.particlesOnAnimated.false": "Disabled",
   "option.modmenu.particlesOnAnimated.true": "Enabled"
 }

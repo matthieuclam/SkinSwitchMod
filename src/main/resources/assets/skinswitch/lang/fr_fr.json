@@ -11,7 +11,7 @@
   "option.modmenu.particlesOnStatic": "Particules",
   "option.modmenu.particlesOnStatic.false": "Désactivé",
   "option.modmenu.particlesOnStatic.true": "Activé",
-  "option.modmenu.particlesOnAnimated": "Particles avec animation",
+  "option.modmenu.particlesOnAnimated": "Particles&animation",
   "option.modmenu.particlesOnAnimated.false": "Désactivé",
   "option.modmenu.particlesOnAnimated.true": "Activé"
 }
